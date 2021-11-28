@@ -1,9 +1,10 @@
 let money = 0
 let clickpower = 1
 let upgradeprice = 100
-let bosshp = 300
-let boss = 0
-
+let initialbosshp = 300
+let bosshp = initialbosshp
+let boss = Math.randomRange(0,17)
+let bossreward = 1000
 input.onButtonPressed(Button.A, function(){
     money = money + clickpower
     boss = boss - clickpower
@@ -24,6 +25,12 @@ input.onPinPressed(TouchPin.P0, function(){
     basic.showString("Money =")
     basic.showNumber(money)
 })
+if(bosshp = 0){
+    boss = Math.randomRange(0,17)
+    initialbosshp = initialbosshp * 2.5
+    money = money + bossreward
+    boss = initialbosshp
+}
 if(boss = 0){
     basic.showIcon(IconNames.Heart)
 }
